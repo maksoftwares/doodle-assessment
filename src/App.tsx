@@ -37,13 +37,6 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // Auto-scroll to bottom when messages change
-  useEffect(() => {
-    if (chatListRef.current) {
-      chatListRef.current.scrollTop = chatListRef.current.scrollHeight;
-    }
-  }, [messages]);
-
   const handleSend = async (message: string) => {
     const newMessage = await sendMessage({ author: userName, message });
     setMessages((prev) => [...prev, newMessage]);
