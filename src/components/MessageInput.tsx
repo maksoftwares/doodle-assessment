@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import './MessageInput.css';
 
 interface MessageInputProps {
   onSend: (message: string) => Promise<void>;

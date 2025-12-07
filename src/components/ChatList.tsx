@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import type { Message } from '../types';
+import './ChatList.css';
 
 interface ChatListProps {
   messages: Message[];
