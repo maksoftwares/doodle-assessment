@@ -22,18 +22,18 @@ const ChatList = forwardRef<HTMLDivElement, ChatListProps>(({ messages, loading,
   };
 
   return (
-    <div className="chat-list" ref={ref}>
+    <div className="chat-list" ref={ref} data-testid="chat-list">
       {messages.map((msg) => {
         const isOwnMessage = msg.author === currentUserName;
         return (
-          <div key={msg._id} className={`message ${isOwnMessage ? 'message-sent' : 'message-received'}`}>
+          <div key={msg._id} className={`message ${isOwnMessage ? 'message-sent' : 'message-received'}`} data-testid="message-item">
             {!isOwnMessage && (
-              <div className="message-header">
+              <div className="message-header" data-testid="message-author">
                 {msg.author}
               </div>
             )}
-            <p className="message-text">{msg.message}</p>
-              <span className="timestamp">
+            <p className="message-text" data-testid="message-text">{msg.message}</p>
+              <span className="timestamp" data-testid="message-timestamp">
                 {formatTimestamp(msg.createdAt)}
               </span>
           </div>

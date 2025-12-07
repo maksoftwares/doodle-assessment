@@ -25,7 +25,7 @@ export default function MessageInput({ onSend, userName }: MessageInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="message-input">
+    <form onSubmit={handleSubmit} className="message-input" data-testid="message-input-form">
       <input
         type="text"
         placeholder="Message"
@@ -33,8 +33,9 @@ export default function MessageInput({ onSend, userName }: MessageInputProps) {
         onChange={(e) => setMessage(e.target.value)}
         disabled={sending}
         required
+        data-testid="message-input"
       />
-      <button type="submit" disabled={sending}>
+      <button type="submit" disabled={sending} data-testid="send-button">
         {sending ? 'Sending...' : 'Send'}
       </button>
     </form>
