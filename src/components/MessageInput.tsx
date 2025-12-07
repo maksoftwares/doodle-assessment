@@ -5,7 +5,7 @@ interface MessageInputProps {
   userName: string;
 }
 
-export default function MessageInput({ onSend, userName }: MessageInputProps) {
+export default function MessageInput({ onSend }: MessageInputProps) {
   const [message, setMessage] = useState('');
   const [sending, setSending] = useState(false);
 
