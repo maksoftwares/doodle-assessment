@@ -29,7 +29,7 @@ const ChatList = forwardRef<HTMLDivElement, ChatListProps>(({ messages, loading,
           <div key={msg._id} className={`message ${isOwnMessage ? 'message-sent' : 'message-received'}`}>
             {!isOwnMessage && (
               <div className="message-header">
-                <strong>{msg.author}</strong>
+                {msg.author}
               </div>
             )}
             <p className="message-text">{msg.message}</p>

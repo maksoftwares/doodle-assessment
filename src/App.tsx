@@ -92,10 +92,6 @@ function App() {
           </div>
         </div>
       )}
-
-      <header>
-        <h1>Doodle Chat</h1>
-      </header>
       
       {error && <div className="error">{error}</div>}
       
