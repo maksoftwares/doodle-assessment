@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import ChatList from './components/ChatList';
 import MessageInput from './components/MessageInput';
 import { fetchMessages, sendMessage } from './api/messages';
@@ -11,7 +11,6 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [userName, setUserName] = useState<string>('');
   const [showNameModal, setShowNameModal] = useState(true);
-  const chatListRef = useRef<HTMLDivElement>(null);
 
   const loadMessages = async () => {
     try {
@@ -88,7 +87,7 @@ function App() {
       
       {error && <div className="error">{error}</div>}
       
-      <ChatList messages={messages} loading={loading} ref={chatListRef} currentUserName={userName} />
+      <ChatList messages={messages} loading={loading} currentUserName={userName} />
       <MessageInput onSend={handleSend} userName={userName} />
     </div>
   );

@@ -1,4 +1,3 @@
-import { forwardRef } from 'react';
 import type { Message } from '../types';
 import './ChatList.css';
 
@@ -8,7 +7,7 @@ interface ChatListProps {
   currentUserName: string;
 }
 
-const ChatList = forwardRef<HTMLDivElement, ChatListProps>(({ messages, loading, currentUserName }, ref) => {
+export default function ChatList({ messages, loading, currentUserName }: ChatListProps) {
   if (loading) return <div>Loading messages...</div>;
 
   const formatTimestamp = (dateString: string) => {
@@ -23,7 +22,7 @@ const ChatList = forwardRef<HTMLDivElement, ChatListProps>(({ messages, loading,
   };
 
   return (
-    <div className="chat-list" ref={ref} data-testid="chat-list">
+    <div className="chat-list" data-testid="chat-list">
       {messages.map((msg) => {
         const isOwnMessage = msg.author === currentUserName;
         return (
@@ -42,8 +41,4 @@ const ChatList = forwardRef<HTMLDivElement, ChatListProps>(({ messages, loading,
       })}
     </div>
   );
-});
-
-ChatList.displayName = 'ChatList';
-
-export default ChatList;
+}
